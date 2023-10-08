@@ -11,25 +11,19 @@
 </head>
 
 <body>
-    <div class="container mt-4">
-        <h2>Search for Books</h2>
-        <div class="input-group mb-3">
-            <input type="text" id="search-input" class="form-control" placeholder="Search by author or title">
-            <button id="search-button" class="btn btn-primary">Search</button>
-        </div>
-
-        <h2>Search Results</h2>
-        <div class="row" id="search-results">
-            <!-- Search results will be dynamically inserted here as cards -->
-        </div>
+    <div class="read-list">
+        <h2>To Be Read</h2>
+        <ul id="read-list-items"></ul>
     </div>
-
-    <!-- JavaScript and Bootstrap Scripts -->
+    <div class="finished-list">
+        <h2>Finished Books</h2>
+        <ul id="finished-list-items"></ul>
+    </div>
     <script src="js/model.js"></script>
     <script src="js/view.js"></script>
     <script src="js/controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="templates/list.html"></script>
+    <script src="templates/search.html"></script>
     <script src="js/main.js"></script>
 </body>
 
