@@ -1,34 +1,28 @@
-/* Custom CSS for centering the <h1> and adding text shadow */
-#main-image {
-    background-image: url("images/mountains.jpg");
+.navbar {
+    z-index: 2000;
+}
+
+#bookmark-image {
+    background-image: url("images/bookmark.png");
+}
+
+#velaris-image {
+    background-image: url("images/velaris.png");
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, 0.6);
     height: 100vh;
 }
 
-.home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
-.jumbotron {
-    background-size: cover;
-}
-
-/* Overlay for jumbotron */
-.overlay {
-    position: relative;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-}
-
-/* Text shadow for <h1> */
-.display-4 {
+h1 {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-    /* Customize the shadow as needed */
 }
