@@ -11,48 +11,84 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="/">Lindsey's Bookshelf</a>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <a class="navbar-brand" href="../../index.html">Lindsey's Bookshelf</a>
+                <form class="d-flex" role="search">
+                    <input id="main-search" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
                 </form>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <div id="bookmark-image"></div>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a id="search-link" class="nav-link" href="search.html">Search Library</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="list-link" class="nav-link" href="#">View Lists</a>
-                        </li>
-                    </ul>
-                    <div id="velaris-image"></div>
+                <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-body">
+                        <div class="d-flex flex-column">
+                            <div class="mb-3">
+                                <div class="offcanvas-header">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div id="wing-l"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div id="wing-r"></div>
+                                    </div>
+                                </div>
+                                <br>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a id="search-link" class="nav-link" href="public/templates/search.html">Search
+                                            Library</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a id="list-link" class="nav-link" href="public/templates/list.html">View
+                                            Lists</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="mb-3">
+                            <div class="offcanvas-footer">
+                                <div class="text-center p-3">
+                                    © 2023 Copyright: Lindsey Jimenez
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Left Split (To Be Read) -->
-                <div class="col-md-6">
-                    <h2>To Be Read</h2>
-                    <div class="author-list"></div>
-                </div>
-                <!-- Right Split (Finished) -->
-                <div class="col-md-6">
-                    <h2>Finished</h2>
-                    <div class="author-list"></div>
-                </div>
+    <!-- Background image -->
+    <div class="fantasy-bg-image img-fluid">
+        <div class="mask"></div>
+    </div>
+    <!-- Background image -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Split (To Be Read) -->
+            <div class="col-md-6">
+                <h2>To Be Read</h2>
+                <div class="author-list"></div>
+            </div>
+            <!-- Right Split (Finished) -->
+            <div class="col-md-6">
+                <h2>Finished</h2>
+                <div class="author-list"></div>
             </div>
         </div>
-    </main>
+    </div>
     <script src="../js/model.js"></script>
     <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>

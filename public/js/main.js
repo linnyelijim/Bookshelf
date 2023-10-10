@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
     const bookModel = new BookModel();
     const bookView = new BookView();
     const bookController = new BookController(bookModel, bookView);
@@ -83,3 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.getElementById('search-button');
     searchButton.addEventListener('click', handleSearchButtonClick);
 });
+ */

@@ -1,20 +1,11 @@
-.navbar {
-    z-index: 2000;
-}
-
-#bookmark-image {
-    background-image: url("images/bookmark.png");
-}
-
-#velaris-image {
-    background-image: url("images/velaris.png");
-}
-
-/* Height for devices larger than 576px */
-@media (min-width: 992px) {
-    #intro {
-        margin-top: -58.59px;
-    }
+.fantasy-bg-image {
+    background-image: url('images/fantasy.jpg');
+    background-color: black;
+    height: 100vh;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 .mask {
@@ -22,7 +13,105 @@
     height: 100vh;
 }
 
+.enter-book {
+    background-image: url('images/bookdrawing.png');
+    box-shadow: inset;
+    background-size: contain !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 40%;
+    width: 40%;
+    margin: 2rem 4rem;
+    opacity: 0.4;
+}
+
+.enter-book:hover {
+    opacity: 0.8;
+}
 
 h1 {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.offcanvas {
+    margin-top: 56px;
+    width: 20% !important;
+}
+
+.offcanvas-header {
+    background-color: black;
+    position: relative;
+}
+
+.offcanvas-body {
+    flex-grow: 0.8 !important;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto';
+    background-color: black;
+    margin: 0;
+}
+
+.btn-close {
+    position: relative;
+    top: 1;
+    z-index: 1;
+}
+
+.nav-item {
+    color: black;
+}
+
+#wing-l {
+    background-image: url("images/wingL2.png");
+}
+
+#wing-r {
+    background-image: url("images/wingR2.png");
+}
+
+#wing-l,
+#wing-r {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 80px;
+    width: 100%;
+}
+
+.offcanvas-footer {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Roboto';
+    background-color: black;
+    height: 20%;
+
+}
+
+.container-fluid {
+    position: relative;
+    z-index: 1;
+}
+
+.author-list {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Adjust as needed */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+    /* Ensure the lists are on top */
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
 }
