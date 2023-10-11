@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="list-body">
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
@@ -72,28 +72,46 @@
     </header>
     <!-- Background image -->
     <div class="fantasy-bg-image img-fluid">
-        <div class="mask"></div>
-    </div>
-    <!-- Background image -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left Split (To Be Read) -->
-            <div class="col-md-6">
-                <h2>To Be Read</h2>
-                <div class="author-list"></div>
-            </div>
-            <!-- Right Split (Finished) -->
-            <div class="col-md-6">
-                <h2>Finished</h2>
-                <div class="author-list"></div>
+        <div class="mask">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Left Split (To Be Read) -->
+                    <div class="col-md-6">
+                        <h2>To Be Read</h2>
+                        <div class="author-list"></div>
+                    </div>
+                    <!-- Right Split (Finished) -->
+                    <div class="col-md-6">
+                        <h2>Finished</h2>
+                        <div class="author-list"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- Background image -->
+
     <script src="../js/model.js"></script>
     <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        function fadeIn(element, duration, callback) {
+            element.style.transition = `opacity ${duration / 1000}s ease-in`;
+            element.style.opacity = '1';
+
+            setTimeout(() => {
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            }, duration);
+        }
+        window.addEventListener('load', function () {
+            const body = document.body;
+            fadeIn(body, 5000);
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Initialize an array to store added books

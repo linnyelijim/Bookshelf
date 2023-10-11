@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
 .fantasy-bg-image {
     background-image: url('images/fantasy.jpg');
     background-color: black;
@@ -9,8 +11,22 @@
 }
 
 .mask {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
+}
+
+a.cipher {
+    color: #fcfcfc;
+    font-family: "Space Mono", monospace;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .enter-book {
@@ -20,14 +36,15 @@
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
-    height: 40%;
-    width: 40%;
+    height: 30%;
+    width: 30%;
     margin: 2rem 4rem;
     opacity: 0.4;
 }
 
 .enter-book:hover {
     opacity: 0.8;
+    transform: scale(1.4);
 }
 
 h1 {
@@ -96,6 +113,17 @@ h1 {
 .container-fluid {
     position: relative;
     z-index: 1;
+}
+
+.list-body {
+    opacity: 0.3;
+    background: #000;
+    overflow: hidden;
+    background-image:
+        radial-gradient(circle at 40% 50%, #610b4b 0%, #a30d8a00 40%),
+        radial-gradient(circle at 65% 60%, #420a50 0%, #580e7500 45%),
+        radial-gradient(circle at 40% 60%, #076066 0%, #17777700 45%);
+    background-blend-mode: screen;
 }
 
 .author-list {
