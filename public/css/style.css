@@ -143,6 +143,28 @@ h1 {
     background-blend-mode: screen;
 }
 
+#search-results {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.card {
+    margin-bottom: 20px;
+    width: 18rem;
+}
+
+.row .card {
+    flex: 0 0 calc(95% - 20px);
+    /* 4 cards per row with some margin between them */
+    max-width: calc(95% - 20px);
+    box-sizing: border-box;
+}
+
+/* Hide extra cards initially */
+.card:nth-child(n+41) {
+    display: none;
+}
+
 .author-list {
     background-color: rgba(255, 255, 255, 0.8);
     /* Adjust as needed */
