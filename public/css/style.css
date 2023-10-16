@@ -51,6 +51,15 @@ h1 {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
+.navbar-toggler {
+    outline: white solid 1.5px;
+}
+
+.navbar {
+    background-color: #0000006b;
+    box-shadow: inset #222120 0px 10px 20px;
+}
+
 .offcanvas {
     margin-top: 56px;
     width: 20% !important;
@@ -131,6 +140,19 @@ h1 {
     }
 }
 
+.search-container {
+    padding-top: 7%;
+}
+
+.search-container h3,
+.navbar-brand {
+    font-variant-caps: petite-caps;
+}
+
+.search-container h3 {
+    text-shadow: #c34bffd1 2px 2px 4px;
+}
+
 .list-body,
 .search-body {
     opacity: 0.3;
@@ -144,25 +166,180 @@ h1 {
 }
 
 #search-results {
-    max-height: 70vh;
+    max-height: 80vh;
     overflow-y: auto;
 }
 
-.card {
+/* .book-card{
     margin-bottom: 20px;
     width: 18rem;
 }
 
-.row .card {
+.row .book-card{
     flex: 0 0 calc(95% - 20px);
-    /* 4 cards per row with some margin between them */
+    /* 4 cards per row with some margin between them
     max-width: calc(95% - 20px);
     box-sizing: border-box;
 }
 
-/* Hide extra cards initially */
+/* Hide extra cards initially
 .card:nth-child(n+41) {
     display: none;
+} */
+
+.book-card {
+    min-height: 100%;
+    font-size: 1.4rem;
+    transition: all 150ms ease-in-out
+}
+
+.bookcover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10px;
+}
+
+.bookcover img {
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: black 4px 4px 8px;
+}
+
+.add-to-library {
+    box-shadow: #0b0457 2px 4px 4px;
+}
+
+.book-card:hover {
+    transform: scale(1.1);
+}
+
+/* @media (max-width: 971px) {
+    .cards {
+        display: block;
+    }
+
+    .book-card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Media query for medium-sized screens 
+@media (max-width: 992px) {
+    .col-md-4 {
+        flex: 0 0 50%;
+        /* Two cards per row 
+        max-width: 50%;
+    }
+
+    .book-card {
+        /* Adjust card styles for medium-sized screens 
+    }
+}
+
+/* Media query for small-sized screens 
+@media (max-width: 768px) {
+    .col-sm-6 {
+        flex: 0 0 100%;
+        /* One card per row 
+        max-width: 100%;
+    }
+
+    .book-card {
+        /* Adjust card styles for small-sized screens 
+    }
+
+    .book-card.card-body {
+        display: none;
+        /* Hide less important information 
+    }
+} */
+
+/* Modal styles */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 25px;
+    color: #000000b0;
+    position: absolute;
+    right: 10px;
+}
+
+#modal .modal-content {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    /* Adjust this to control the modal width */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-details {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Book cover inside the modal */
+
+.modal-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+}
+
+.modal-cover img {
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    box-shadow: black 4px 4px 8px;
+
+}
+
+.modal-details h2,
+.modal-details h4,
+.modal-details h5 {
+    margin: 0 0 10px;
+}
+
+.modal-details .card-text {
+    font-size: 20px;
+}
+
+.modal-details .list-group-item {
+    font-size: 18px;
+}
+
+.modal-details .btn-primary {
+    font-size: 18px;
+    margin-top: 30px;
+    float: right;
+}
+
+.mt-4 {
+    margin-top: 5rem !important;
 }
 
 .author-list {

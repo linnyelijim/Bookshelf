@@ -2,8 +2,6 @@ class BookController {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-
-        // Bind event handlers
         this.view.bindSearchButton(this.handleSearch.bind(this));
     }
 
@@ -14,3 +12,8 @@ class BookController {
 }
 
 const bookController = new BookController(bookModel, bookView);
+
+document.getElementById('search-button').addEventListener('click', () => {
+    const query = document.getElementById('search-input').value.trim();
+    bookController.handleSearch(query);
+});

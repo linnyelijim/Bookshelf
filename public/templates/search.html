@@ -11,7 +11,7 @@
 
 <body class="fade-in search-body">
     <header>
-        <nav class="navbar navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-dark fixed-top">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
@@ -19,11 +19,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="../../index.html">Lindsey's Bookshelf</a>
-                <form class="d-flex" role="search">
-                    <input id="main-search" class="form-control me-2" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
                 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
                     aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-body">
@@ -72,22 +67,25 @@
     </header>
     <main class="fantasy-bg-image">
         <div class="mask">
-            <div class="container mt-4">
+            <div class="search-container container">
                 <div class="img-fluid">
-                    <h2>Search for Books</h2>
+                    <h3 class="text-white text-center">Search for Books</h3>
                     <div class="input-group mb-3">
                         <input type="text" id="search-input" class="form-control"
                             placeholder="Search by author or title">
                         <button id="search-button" class="btn btn-primary">Search</button>
                     </div>
 
-
-                    <div class="row" id="search-results">
-                        <!-- Search results will be dynamically inserted here as cards -->
+                    <div id="search-results" class="row"></div>
+                    <div id="modal" class="modal">
+                        <div class="modal-container">
+                            <div class="modal-content"> <span class="close" id="closeModal">&times;</span>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="text-center mt-4">
-                        <button id="next-page-button" class="btn btn-primary">Next Page</button>
+                    <div class="next-page text-center mt-4">
+                        <button id="next-page-button" class="btn btn-primary" onclick="showNextPage()">Next
+                            Page</button>
                     </div>
                 </div>
             </div>
@@ -99,5 +97,55 @@
     <script src="../js/controller.js"></script>
     <script src="../js/search.js"></script>
 </body>
+
+<!-- 
+<form class="star-rating-form" id="ratingsForm" method="POST" action="/works/OL17860744W/ratings.json"
+    property="reviewRating" typeof="Rating" vocab="http://schema.org/">
+    <meta property="worstRating" content="1">
+    <meta property="bestRating" content="5">
+    <input type="hidden" value="/books/OL26992991M" name="edition_id">
+    <input type="hidden" value="true" name="redir">
+    <div class="review" id="starRatingSection">
+        <div class="stars" data-ol-link-track="StarRating|BookRated">
+            <input type="submit" value="1" name="rating" class="star-1" id="star-1">
+            <label class="star star-1 " property="worstRating" for="star-1">1</label>
+            <input type="submit" value="2" name="rating" class="star-2" id="star-2">
+            <label class="star star-2 " for="star-2">2</label>
+            <input type="submit" value="3" name="rating" class="star-3" id="star-3">
+            <label class="star star-3 " for="star-3">3</label>
+            <input type="submit" value="4" name="rating" class="star-4" id="star-4">
+            <label class="star star-4 " for="star-4">4</label>
+            <input type="submit" value="5" name="rating" class="star-5" id="star-5">
+            <label class="star star-5 " property="bestRating" for="star-5">5</label>
+
+            <span></span>
+        </div>
+    </div>
+    <span class="star-rating__not-rated">Rate</span>
+    <button type="submit" class="star-messaging hidden">Clear my rating</button>
+</form>
+
+
+
+<ul class="readers-stats  " itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating">
+    <li class="avg-ratings" onclick="location.href='#starRatingSection';"
+        data-ol-link-track="StarRating|StatsComponentClick">
+        <span class="readers-stats__star">★</span><span class="readers-stats__star">★</span><span
+            class="readers-stats__star">★</span>
+        <span class="readers-stats__star--half">★</span>
+        <span itemprop="ratingValue">3.93</span>
+        <span class="dot">·</span>
+    </li>
+
+    <li class="readers-stats__review-count">
+        <span itemprop="reviewCount">238</span> Ratings
+    </li>
+    <li class="reading-log-stat"><span class="readers-stats__stat">5107</span> <span class="readers-stats__label">Want
+            to read</span></li>
+    <li class="reading-log-stat"><span class="readers-stats__stat">382</span> <span
+            class="readers-stats__label">Currently reading</span></li>
+    <li class="reading-log-stat"><span class="readers-stats__stat">275</span> <span class="readers-stats__label">Have
+            read</span></li>
+</ul>-->
 
 </html>

@@ -1,4 +1,4 @@
-document.getElementById('next-page-button').addEventListener('click', showNextPage);
+/* document.getElementById('next-page-button').addEventListener('click', showNextPage);
 let currentPage = 1;
 const resultsPerPage = 40;
 
@@ -11,5 +11,4 @@ function showNextPage() {
         }
     }
     currentPage++;
-}
-showNextPage();
+} */
