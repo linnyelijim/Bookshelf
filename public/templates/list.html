@@ -19,10 +19,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="../../index.html">Lindsey's Bookshelf</a>
-                <form class="d-flex" role="search">
-                    <input id="main-search" class="form-control me-2" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
+                <form class="d-flex" role="search" action="../templates/search.html" method="GET">
+                    <input type="text" id="search-input" name="query" class="form-control"
+                        placeholder="Search by author or title">
+                    <button id="search-button" class="btn btn-primary" type="submit">Search</button>
                 </form>
                 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
                     aria-labelledby="offcanvasDarkNavbarLabel">
@@ -78,12 +78,15 @@
                     <!-- Left Split (To Be Read) -->
                     <div class="to-be-read col-md-6">
                         <h2>To Be Read</h2>
-                        <div class="author-list"></div>
+                        <div id="to-be-read-list" class="author-list"></div>
                     </div>
-                    <!-- Right Split (Finished) -->
+                    <div class="currently-reading col-md-6">
+                        <h2>Currently Reading</h2>
+                        <div id="currently-reading-list" class="author-list"></div>
+                    </div>
                     <div class="finished col-md-6">
                         <h2>Finished</h2>
-                        <div class="author-list"></div>
+                        <div id="already-read-list" class="author-list"></div>
                     </div>
                 </div>
             </div>
@@ -91,62 +94,13 @@
     </div>
     <!-- Background image -->
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="../js/model.js"></script>
     <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize an array to store added books
-            const toBeReadBooks = [];
 
-            // Function to add a book to the "To Be Read" list
-            function addBookToBeRead(bookInfo) {
-                toBeReadBooks.push(bookInfo);
-                renderToBeReadBooks();
-            }
 
-            // Function to render the "To Be Read" books
-            function renderToBeReadBooks() {
-                const authorList = document.querySelector(".author-list");
-
-                // Clear the existing content
-                authorList.innerHTML = "";
-
-                // Loop through the added books and render them
-                toBeReadBooks.forEach(book => {
-                    const authorHeader = document.createElement("h3");
-                    authorHeader.textContent = book.author;
-
-                    const bookList = document.createElement("ul");
-
-                    book.books.forEach(bookTitle => {
-                        const listItem = document.createElement("li");
-                        listItem.innerHTML = `
-                            <label>
-                                <input type="checkbox"> ${bookTitle} - ${book.series}
-                            </label>
-                        `;
-                        bookList.appendChild(listItem);
-                    });
-
-                    authorList.appendChild(authorHeader);
-                    authorList.appendChild(bookList);
-                });
-            }
-
-            // Event listener for adding a book
-            document.addEventListener("click", function (event) {
-                if (event.target.classList.contains("add-book-btn")) {
-                    const bookInfo = {
-                        author: event.target.getAttribute("data-author"),
-                        series: event.target.getAttribute("data-series"),
-                        books: [event.target.getAttribute("data-title")]
-                    };
-                    addBookToBeRead(bookInfo);
-                }
-            });
-        });
     </script>
 </body>
 

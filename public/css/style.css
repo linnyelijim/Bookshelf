@@ -141,7 +141,7 @@ h1 {
 }
 
 .search-container {
-    padding-top: 7%;
+    padding-top: 5%;
 }
 
 .search-container h3,
@@ -170,16 +170,8 @@ h1 {
     overflow-y: auto;
 }
 
-/* .book-card{
-    margin-bottom: 20px;
-    width: 18rem;
-}
-
-.row .book-card{
-    flex: 0 0 calc(95% - 20px);
-    /* 4 cards per row with some margin between them
-    max-width: calc(95% - 20px);
-    box-sizing: border-box;
+#search-results .row {
+    padding-top: 30px;
 }
 
 /* Hide extra cards initially
@@ -211,6 +203,7 @@ h1 {
 
 .add-to-library {
     box-shadow: #0b0457 2px 4px 4px;
+    z-index: 2;
 }
 
 .book-card:hover {
