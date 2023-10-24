@@ -1,4 +1,4 @@
-class BookView {
+class SearchView {
     constructor() {
         this.searchInput = document.getElementById('search-input');
         this.searchButton = document.getElementById('search-button');
@@ -17,11 +17,11 @@ class BookView {
             }
         });
     }
-    description(book) {
-        const description = bookModel.getBookDescription(book);
+    async description(book) {
+        const description = await bookModel.getBookDescription(book);
         return description;
     }
-    createBookCard(book) {
+    async createBookCard(book) {
         console.log('Book object:', book);
         const title = book.title || 'Title not available';
         const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
@@ -30,9 +30,7 @@ class BookView {
         const pageCount = book.number_of_pages_median || 'Page count not available';
         const publishedDate = book.first_publish_year || 'Publication year not available';
         const isbn = book.isbn ? book.isbn[0] : 'ISBN not available';
-        console.log('description start');
-        const description = this.description(book);
-        console.log('description end');
+        const description = await this.description(book);
         const card = document.createElement('div');
         card.classList.add('book-card', 'card');
         card.innerHTML = `
@@ -97,8 +95,6 @@ class BookView {
         return card;
     }
 
-
-
     renderSearchResults(books) {
         this.searchResults.innerHTML = '';
 
@@ -106,19 +102,17 @@ class BookView {
             this.searchResults.textContent = 'No results found.';
             return;
         }
-        let currentRow = document.createElement('div');
+        const currentRow = document.createElement('div');
         currentRow.classList.add('row');
-        console.log('currentRow:', currentRow);
-        console.log('searchResults:', this.searchResults);
 
-        books.forEach((book, index) => {
+        books.forEach(async (book, index) => {
             if (index % 4 === 0 && index > 0) {
                 this.searchResults.appendChild(currentRow);
                 currentRow = document.createElement('div');
                 currentRow.classList.add('row');
             }
 
-            const card = this.createBookCard(book);
+            const card = await this.createBookCard(book);
             const col = document.createElement('div');
             col.classList.add('col-lg-3', 'col-md-6', 'mb-4');
             col.appendChild(card);
@@ -127,35 +121,5 @@ class BookView {
 
         this.searchResults.appendChild(currentRow);
     }
-
-    renderListResults() {
-        renderList("to-be-read-list", () => bookModel.getToBeRead());
-        renderList("currently-reading-list", () => bookModel.getCurrentlyReading());
-        renderList("already-read-list", () => bookModel.getReadBooks());
-
-        function renderList(listId, listFunction) {
-            const listContainer = document.getElementById(listId);
-            listFunction()
-                .then((books) => {
-                    if (books.length === 0) {
-                        listContainer.innerHTML = 'No books in this list.';
-                        return;
-                    }
-                    listContainer.innerHTML = '';
-                    books.forEach((book) => {
-                        const card = this.createBookCard(book); // Use 'this' to access createBookCard
-                        listContainer.appendChild(card);
-                    });
-                })
-                .catch((error) => {
-                    console.error('Error fetching list:', error);
-                });
-        }
-    }
 }
-const bookView = new BookView();
-
-document.addEventListener("DOMContentLoaded", function () {
-    bookView.renderListResults();
-});
-
+const searchView = new SearchView();

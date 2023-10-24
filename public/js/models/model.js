@@ -1,12 +1,44 @@
 class BookModel {
     constructor() {
         this.books = [];
+        this.entries = [];
     }
 
     async searchBooks(query) {
         const response = await fetch(`http://openlibrary.org/search.json?q=${query}`);
         const data = await response.json();
         this.books = data.docs || [];
+    }
+    async getCurrentlyReading() {
+        try {
+            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/currently-reading.json');
+            const data = await response.json();
+            this.entries = data.reading_log_entries || [];
+        } catch (error) {
+            console.error('Error fetching "To Be Read" list:', error);
+        }
+        return this.entries;
+    }
+
+    async getToBeRead() {
+        try {
+            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/want-to-read.json');
+            const data = await response.json();
+            this.entries = data.reading_log_entries || [];
+        } catch (error) {
+            console.error('Error fetching "To Be Read" list:', error);
+        }
+        return this.entries;
+    }
+    async getReadBooks() {
+        try {
+            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/already-read.json');
+            const data = await response.json();
+            this.entries = data.reading_log_entries || [];
+        } catch (error) {
+            console.error('Error fetching "To Be Read" list:', error);
+        }
+        return this.entries;
     }
     async getBookDescription(book) {
         let description = 'Description not available';
@@ -57,37 +89,7 @@ class BookModel {
             };
         }
     }
-    async getCurrentlyReading() {
-        try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/currently-reading.json');
-            const data = await response.json();
-            return data.entries || [];
-        } catch (error) {
-            console.error('Error fetching "To Be Read" list:', error);
-            return [];
-        }
-    }
 
-    async getToBeRead() {
-        try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/want-to-read.json');
-            const data = await response.json();
-            return data.entries || [];
-        } catch (error) {
-            console.error('Error fetching "To Be Read" list:', error);
-            return [];
-        }
-    }
-    async getReadBooks() {
-        try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/already-read.json');
-            const data = await response.json();
-            return data.entries || [];
-        } catch (error) {
-            console.error('Error fetching "To Be Read" list:', error);
-            return [];
-        }
-    }
 }
 
 const bookModel = new BookModel();
