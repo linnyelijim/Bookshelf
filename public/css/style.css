@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 .fantasy-bg-image {
-    background-image: url('images/fantasy.jpg');
+    background-image: url('../images/fantasy.jpg');
     background-color: black;
     height: 100vh;
     background-position: center center;
@@ -30,7 +30,7 @@ a.cipher {
 }
 
 .enter-book {
-    background-image: url('images/bookdrawing.png');
+    background-image: url('../images/bookdrawing.png');
     box-shadow: inset;
     background-size: contain !important;
     background-position: center center;
@@ -92,11 +92,11 @@ h1 {
 }
 
 #wing-l {
-    background-image: url("images/wingL2.png");
+    background-image: url("../images/wingL2.png");
 }
 
 #wing-r {
-    background-image: url("images/wingR2.png");
+    background-image: url("../images/wingR2.png");
 }
 
 #wing-l,
@@ -173,11 +173,6 @@ h1 {
 #search-results .row {
     padding-top: 30px;
 }
-
-/* Hide extra cards initially
-.card:nth-child(n+41) {
-    display: none;
-} */
 
 .book-card {
     min-height: 100%;

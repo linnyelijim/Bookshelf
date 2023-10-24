@@ -5,25 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lindsey's Bookshelf</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
-<body class="list-body fade-in">
+<body class="fade-in search-body">
     <header>
-        <nav class="navbar navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-dark fixed-top">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">Lindsey's Bookshelf</a>
-                <form class="d-flex" role="search" action="../templates/search.html" method="GET">
-                    <input type="text" id="search-input" name="query" class="form-control"
-                        placeholder="Search by author or title">
-                    <button id="search-button" class="btn btn-primary" type="submit">Search</button>
-                </form>
+                <a class="navbar-brand" href="../index.html">Lindsey's Bookshelf</a>
                 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
                     aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-body">
@@ -70,45 +65,36 @@
             </div>
         </nav>
     </header>
-    <!-- Background image -->
-    <div class="fantasy-bg-image img-fluid">
+    <main class="fantasy-bg-image">
         <div class="mask">
-            <div class="container-fluid">
-                <div class="book-lists">
-                    <div class="row">
-                        <!-- Left Split (To Be Read) -->
-                        <div class="to-be-read col-md-4">
-                            <h2>To Be Read</h2>
-                            <div id="to-be-read-list" class="author-list horizontal-scroll"></div>
+            <div class="search-container container">
+                <div class="img-fluid">
+                    <h3 class="text-white text-center">Search for Books</h3>
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-input" class="form-control"
+                            placeholder="Search by author or title">
+                        <button id="search-button" class="search-query btn btn-primary">Search</button>
+                    </div>
+
+                    <div id="search-results" class="row"></div>
+                    <div id="modal" class="modal">
+                        <div class="modal-container">
+                            <div class="modal-content"> <span class="close" id="closeModal">&times;</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="currently-reading col-md-4">
-                            <h2>Currently Reading</h2>
-                            <div id="currently-reading-list" class="author-list horizontal-scroll"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="finished col-md-4">
-                            <h2>Finished</h2>
-                            <div id="already-read-list" class="author-list horizontal-scroll"></div>
-                        </div>
+                    <div class="next-page text-center mt-4">
+                        <button id="next-page-button" class="btn btn-primary" onclick="showNextPage()">Next
+                            Page</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- Background image -->
-
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="../js/models/model.js"></script>
-    <script src="../js/views/list.js"></script>
-    <script src="../js/controllers/list.js"></script>
-    <script>
-
-
-    </script>
+    <script src="../models/model.js"></script>
+    <script src="../public/js/search.js"></script>
+    <script src="../controllers/search.js"></script>
 </body>
 
 </html>

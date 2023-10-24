@@ -57,7 +57,7 @@ function fadeIn(element, duration, callback) {
 function navigateWithFadeOut() {
     const body = document.body;
     fadeOut(body, 3000, function () {
-        window.location.href = 'public/templates/list.html';
+        window.location.href = 'views/list.html';
     });
 }
 document.querySelector('.enter-book').addEventListener('click', function () {
