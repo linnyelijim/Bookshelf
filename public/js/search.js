@@ -25,7 +25,7 @@ class SearchView {
         console.log('Book object:', book);
         const title = book.title || 'Title not available';
         const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
-        const mediumCoverUrl = book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../css/images/placeholder.jpg`;
+        const mediumCoverUrl = book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../public/images/placeholder.jpg`;
         const rating = book.ratings_average ? `${book.ratings_average.toFixed(1)}/5 Rating` : 'No Rating';
         const pageCount = book.number_of_pages_median || 'Page count not available';
         const publishedDate = book.first_publish_year || 'Publication year not available';
@@ -40,11 +40,13 @@ class SearchView {
                     <div class="card-body text-center">
                         <h4 class="card-title">${title}</h4>
                         <h5 class="list-group-item">${authors}</h5>
-                        <form action="list.html" method="post">
-                            <input type="hidden" name="action" value="add-to-library">
-                            <input type="hidden" name="isbn" value="${isbn}">
-                            <button type="submit" class="btn btn-primary add-to-library" data-isbn="${isbn}">Add to Library</button>
-                        </form>                    
+                        <div class="modal-footer mt-4 justify-content-center">
+                            <form action="list.html" method="post">
+                                <input type="hidden" name="action" value="add-to-library">
+                                <input type="hidden" name="isbn" value="${isbn}">
+                                <button type="submit" class="btn btn-primary add-to-library" data-isbn="${isbn}">Add to Library</button>
+                            </form>   
+                        </div>                 
                     </div>
                 `;
 
@@ -52,7 +54,7 @@ class SearchView {
         card.addEventListener('click', () => {
             const modal = document.getElementById('modal');
             const modalContent = document.querySelector('.modal-content');
-            const largeCoverUrl = `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../css/images/placeholder.jpg';
+            const largeCoverUrl = `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../public/images/placeholder.jpg';
 
             modalContent.innerHTML = `
                             <span class="close" id="closeModal">&times;</span>
@@ -71,11 +73,13 @@ class SearchView {
                                     <li class="list-group-item">Published: ${publishedDate}</li>
                                     <li class="list-group-item">ISBN Number: ${isbn}</li>
                                 </ul>
-                                <form action="list.html" method="post">
-                                    <input type="hidden" name="action" value="add-to-library">
-                                    <input type="hidden" name="isbn" value="ISBN_OF_THE_BOOK">
-                                    <button type="submit" class="btn btn-primary add-to-library" data-isbn="${isbn}">Add to Library</button>
-                                </form>
+                                <div class="modal-footer mt-4 justify-content-center">
+                                    <form action="list.html" method="post">
+                                        <input type="hidden" name="action" value="add-to-library">
+                                        <input type="hidden" name="isbn" value="${isbn}">
+                                        <button type="submit" class="btn btn-primary add-to-library" data-isbn="${isbn}">Add to Library</button>
+                                    </form>   
+                                </div>  
                             </div>
                         `;
 
@@ -108,7 +112,6 @@ class SearchView {
         books.forEach(async (book, index) => {
             if (index % 4 === 0 && index > 0) {
                 this.searchResults.appendChild(currentRow);
-                currentRow = document.createElement('div');
                 currentRow.classList.add('row');
             }
 
