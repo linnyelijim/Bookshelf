@@ -5,13 +5,13 @@ class BookModel {
     }
 
     async searchBooks(query) {
-        const response = await fetch(`http://openlibrary.org/search.json?q=${query}`);
+        const response = await fetch(`https://openlibrary.org/search.json?q=${query}`);
         const data = await response.json();
         this.books = data.docs || [];
     }
     async getCurrentlyReading() {
         try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/currently-reading.json');
+            const response = await fetch('https://openlibrary.org/people/lindsey_jimenez/books/currently-reading.json');
             const data = await response.json();
             this.entries = data.reading_log_entries || [];
         } catch (error) {
@@ -22,7 +22,7 @@ class BookModel {
 
     async getToBeRead() {
         try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/want-to-read.json');
+            const response = await fetch('https://openlibrary.org/people/lindsey_jimenez/books/want-to-read.json');
             const data = await response.json();
             this.entries = data.reading_log_entries || [];
         } catch (error) {
@@ -32,7 +32,7 @@ class BookModel {
     }
     async getReadBooks() {
         try {
-            const response = await fetch('http://openlibrary.org/people/lindsey_jimenez/books/already-read.json');
+            const response = await fetch('https://openlibrary.org/people/lindsey_jimenez/books/already-read.json');
             const data = await response.json();
             this.entries = data.reading_log_entries || [];
         } catch (error) {
@@ -66,7 +66,7 @@ class BookModel {
         if (book) {
             const title = book.title || 'Title not available';
             const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
-            const smallCoverUrl = book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : `../css/images/placeholder.jpg`;
+            const smallCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : `../css/images/placeholder.jpg`;
             const rating = book.ratings_average ? `${book.ratings_average.toFixed(1)}/5 Rating` : 'No Rating';
             const description = await this.getBookDescription(book);
             const pageCount = book.number_of_pages_median || 'Page count not available';
