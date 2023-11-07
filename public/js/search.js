@@ -25,7 +25,7 @@ class SearchView {
         console.log('Book object:', book);
         const title = book.title || 'Title not available';
         const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
-        const mediumCoverUrl = book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../public/images/placeholder.jpg`;
+        const mediumCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../public/images/placeholder.jpg`;
         const rating = book.ratings_average ? `${book.ratings_average.toFixed(1)}/5 Rating` : 'No Rating';
         const pageCount = book.number_of_pages_median || 'Page count not available';
         const publishedDate = book.first_publish_year || 'Publication year not available';
@@ -54,7 +54,7 @@ class SearchView {
         card.addEventListener('click', () => {
             const modal = document.getElementById('modal');
             const modalContent = document.querySelector('.modal-content');
-            const largeCoverUrl = `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../public/images/placeholder.jpg';
+            const largeCoverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../public/images/placeholder.jpg';
 
             modalContent.innerHTML = `
                             <span class="close" id="closeModal">&times;</span>

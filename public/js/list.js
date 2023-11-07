@@ -23,7 +23,7 @@ class ListView {
         console.log('Book object:', book);
         const title = book.title || 'Title not available';
         const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
-        const smallCoverUrl = book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : `../css/images/placeholder.jpg`;
+        const smallCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : `../css/images/placeholder.jpg`;
         const rating = book.ratings_average ? `${book.ratings_average.toFixed(1)}/5 Rating` : 'No Rating';
         const pageCount = book.number_of_pages_median || 'Page count not available';
         const publishedDate = book.first_publish_year || 'Publication year not available';
