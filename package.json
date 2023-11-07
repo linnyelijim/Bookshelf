@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-css public/css/transition.css public/css/style.css"
+    "build-css": "node-css content/css/transition.css content/css/style.css"
   },
   "keywords": [
     "vercel"

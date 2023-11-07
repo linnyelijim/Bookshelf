@@ -25,7 +25,7 @@ class SearchView {
         console.log('Book object:', book);
         const title = book.title || 'Title not available';
         const authors = book.author_name ? book.author_name.join(', ') : 'Author not available';
-        const mediumCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../public/images/placeholder.jpg`;
+        const mediumCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `../content/images/placeholder.jpg`;
         const rating = book.ratings_average ? `${book.ratings_average.toFixed(1)}/5 Rating` : 'No Rating';
         const pageCount = book.number_of_pages_median || 'Page count not available';
         const publishedDate = book.first_publish_year || 'Publication year not available';
@@ -43,7 +43,6 @@ class SearchView {
                         <div class="modal-footer mt-4 justify-content-center">
                             <form action="list.html" method="post">
                                 <input type="hidden" name="action" value="add-to-library">
-                                <input type="hidden" name="isbn" value="${isbn}">
                                 <button type="submit" class="btn btn-primary add-to-library" data-isbn="${isbn}">Add to Library</button>
                             </form>   
                         </div>                 
@@ -54,7 +53,7 @@ class SearchView {
         card.addEventListener('click', () => {
             const modal = document.getElementById('modal');
             const modalContent = document.querySelector('.modal-content');
-            const largeCoverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../public/images/placeholder.jpg';
+            const largeCoverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` || '../content/images/placeholder.jpg';
 
             modalContent.innerHTML = `
                             <span class="close" id="closeModal">&times;</span>
@@ -117,7 +116,7 @@ class SearchView {
 
             const card = await this.createBookCard(book);
             const col = document.createElement('div');
-            col.classList.add('col-lg-3', 'col-md-6', 'mb-4');
+            col.classList.add('col-lg-3', 'col-md-6', 'mb-5');
             col.appendChild(card);
             currentRow.appendChild(col);
         });
